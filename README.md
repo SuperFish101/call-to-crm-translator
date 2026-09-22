@@ -66,13 +66,8 @@ operator makes, not facts in the call. Guessing them is the judgment a translato
 
 ## What's here
 
-- [`identity.md`](identity.md) — what it converts, from what, to what.
-- [`rules.md`](rules.md) — the mapping law, field by field. The tie-breaker when in doubt.
-- [`reference/`](reference/) — the output schema, the CRM fields, the closed enums.
-- [`examples.md`](examples.md) — the contract holding across different calls.
-- [`LIMITS.md`](LIMITS.md) — what a green run does and does NOT prove. Read before trusting it.
-- [`evidence/control-run.md`](evidence/control-run.md) — the same call on a bare model with no
-  folder: it invented ten facts the transcript never stated. What this folder refuses to do.
-- [`samples/`](samples/) — four transcripts + their outputs + readable cards, across different
-  industries so you can see the same shape hold on calls it wasn't tuned for.
-- [`verify-translation.py`](verify-translation.py) / [`render-view.py`](render-view.py) — the gate and the view.
+New here? Read [`CONTEXT.md`](CONTEXT.md) — it maps every file and routes you by task. The
+short version: [`rules.md`](rules.md) is the law the AI obeys, `verify-translation.py` is the
+gate that re-checks it, `render-view.py` prints the readable card, [`samples/`](samples/) has
+four worked calls across different industries, and [`LIMITS.md`](LIMITS.md) says what a green
+run does NOT prove.
