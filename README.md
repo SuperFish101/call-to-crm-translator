@@ -6,16 +6,14 @@ nothing is invented. If the call didn't say it, the field says `not in source`. 
 would be a guess, the field says `requires human judgment`. It never makes up a price, a date,
 a name spelling, or a next step nobody agreed to.
 
+Anyone who fields sales calls does this by hand: after every call, retyping what the prospect
+said into their CRM — name, number, the price they hope for, the objection they raised, the
+thing they agreed to do next. 5–10 minutes of dull data entry per call. Nobody automates it
+because the last tool that tried invented a budget or a close date the prospect never gave.
+This one refuses to.
+
 The target fields are the real record shape from a production CRM (a GoHighLevel-style CRM).
 See [`reference/crm-fields.md`](reference/crm-fields.md).
-
-## Who does this by hand today
-
-Anyone who fields sales calls for a small business, after every call, retyping what the
-prospect said into their CRM: name, number, the price they hope to get, the objection they
-raised, the thing they agreed to do next. 5–10 minutes of dull data entry per call. Nobody
-automates it because the last tool that tried invented a budget or a close date the prospect
-never gave. This one refuses to.
 
 ## Use it (drop into a Claude project)
 
@@ -23,26 +21,22 @@ never gave. This one refuses to.
 2. Tell Claude: **"Translate this call. Follow rules.md exactly."** Paste the transcript (one
    utterance per line).
 3. Claude returns JSON matching [`reference/output-schema.json`](reference/output-schema.json),
-   plus a readable card. Every field carries its source line.
+   plus a readable card. Every populated field carries its source line; every empty field
+   carries a reason.
 
-## What you feed it / what you get back
-
-- **In:** a plain-text call transcript, one utterance per line.
-- **Out:** one contact, one deal (or empty fields), zero+ tasks, zero+ notes, each populated
-  field as `{value, evidence, source_lines}`, each empty field as `{value:null, status}`.
-
-Look at [`samples/`](samples/) for three worked examples. The readable version of one:
+The readable version of one output:
 
 ```
 ## Contact
-- **Name:** Trevor Nakamura  (line 2: "it's Trevor Nakamura")
-- **Phone:** 7165550198  (line 4: "seven, one, six, five, five, five, zero, one, nine, eight")
-- **Source:** other  (line 6: "saw your name pop up on that Facebook group")
+- **Name:** Angela Ruiz  (line 2: "It's Angela, Angela Ruiz.")
+- **Phone:** 4152228765  (line 4: "four one five, two two two, eight seven six five")
+- **Source:** other  (line 6: "found you through the review on that G2 comparison page")
 ## Deal
-- **Value:** 650000  (line 12: "hoping somewhere around six-fifty")
+- **Value:** 30000  (line 12: "Thirty could work if the migration isn't a nightmare")
 - **Pipeline stage:** requires human judgment
 ## Notes
-- **[objection]** Concerned about commission...  (line 18: "Honestly the commission...")
+- **[objection]** Migration risk is the real worry...  (line 12: "we can't lose data")
+- **[financial]** Competitor quoted ~$80k/yr — NOT the deal value.  (line 10)
 ```
 
 ## Prove it didn't cheat
@@ -68,14 +62,15 @@ no install.
    field goes to `unmapped` so the drop is visible.
 
 Two fields are refused on purpose — `deal.stageId` and `deal.priority`. Those are decisions the
-agent makes, not facts in the call. Guessing them is the judgment a translator must not do.
+operator makes, not facts in the call. Guessing them is the judgment a translator must not do.
 
 ## What's here
 
 - [`identity.md`](identity.md) — what it converts, from what, to what.
 - [`rules.md`](rules.md) — the mapping law, field by field. The tie-breaker when in doubt.
 - [`reference/`](reference/) — the output schema, the CRM fields, the closed enums.
-- [`examples.md`](examples.md) — the contract holding across three different calls.
+- [`examples.md`](examples.md) — the contract holding across different calls.
 - [`LIMITS.md`](LIMITS.md) — what a green run does and does NOT prove. Read before trusting it.
-- [`samples/`](samples/) — three transcripts + their outputs + readable cards.
+- [`samples/`](samples/) — four transcripts + their outputs + readable cards, across different
+  industries so you can see the same shape hold on calls it wasn't tuned for.
 - [`verify-translation.py`](verify-translation.py) / [`render-view.py`](render-view.py) — the gate and the view.

@@ -60,15 +60,16 @@ case: `trevor.nakamura@gmail.com`. Derivation: "spoken 'at'->@, 'dot'->., joined
 domain the speaker did not say.
 
 ### contact.company
-Almost always `not_in_source` on a residential seller call. Fill only if the prospect names
-their own company/employer AND it is relevant as a company field. A mentioned employer that
-is just rapport goes to `personalNotes`, not here.
+Fill only if the prospect names their own company/employer AND it is relevant as a company
+field. A company or employer mentioned as rapport goes to `personalNotes`, not here. A company
+name that is only implied (e.g. an email domain) but never spoken is `not_in_source` — do not
+infer it.
 
 ### contact.address
-The prospect's OWN mailing/home address, only if distinct and stated. The SUBJECT PROPERTY
-being sold is NOT the contact address — it belongs to the deal. If the only address on the
-call is the property being sold, `contact.address` is `not_in_source` and the property lands
-in a `property` note and/or the deal title.
+The prospect's OWN mailing/business address, only if distinct and stated. An address that is
+the SUBJECT of the deal (e.g. a property being sold) is NOT the contact address — it belongs to
+the deal. If the only address on the call is the deal's subject, `contact.address` is
+`not_in_source` and that address lands in a `property` note and/or the deal title.
 
 ### contact.source
 One of the `ContactSource` enum values in [`reference/enums.md`](reference/enums.md). Follow
@@ -118,21 +119,22 @@ See "What the translator refuses to set" below. Always `requires_judgment`.
 
 ### tasks[]
 One task per real commitment made ON the call — something a person said they would do. "Can
-I get that CMA over to you by this Thursday?" + "Thursday works" -> a task. `title` =
-"Send CMA for Cambridge Court" (derived from the quote), `dueAt` evidence = "by this
-Thursday", value = "this Thursday" kept verbatim (NOT resolved to a date — the transcript
-has no call date, so a calendar date would be invented). Do NOT create tasks for things
-merely discussed but not committed to.
+I get that proposal over to you by Friday?" + "Friday works" -> a task. `title` =
+"Send proposal" (derived from the quote), `dueAt` evidence = "by Friday", value = "Friday"
+kept verbatim (NOT resolved to a date — the transcript has no call date, so a calendar date
+would be invented). Do NOT create tasks for things merely discussed but not committed to.
 
 ### notes[]
 Facts that belong on the record but are not a structured field. Categories:
 - **`objection`** — any concern, hesitation, or pushback the prospect raised. Mandatory to
-  capture if present. "commission... six percent felt like a lot... discount brokers... I
-  need to understand what I'm actually paying for" is one objection note.
-- **`property`** — facts about the home being sold: location, updates, roof, kitchen.
-- **`financial`** — money facts that are not the deal value: the comp, the remaining
-  mortgage balance.
-- **`context`** — origin, life situation framing, anything that sets the scene and does not
+  capture if present. A worry about price, risk, contract terms, or "I need to understand what
+  I'm actually paying for" is an objection note.
+- **`property`** — facts about the thing the deal is about: the asset, product, or service
+  being bought or sold and its attributes (for a home: location, updates, condition; for
+  software: the current tool, team size, the system being replaced).
+- **`financial`** — money facts that are not the deal value: a competitor's quote, a comp, a
+  remaining balance.
+- **`context`** — origin, situation framing, anything that sets the scene and does not
   fit a field or another category.
 
 ### unmapped[]

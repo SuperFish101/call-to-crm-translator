@@ -17,7 +17,7 @@ field is `{ value, evidence, source_lines, derivation? }`; every empty field is
 | `contact.name` | `Contact.name` | string | The prospect's name, spelled the way it appeared in the transcript. |
 | `contact.phone` | `Contact.phone` | string | Digits only, spoken digits joined. See rules.md "phone normalization". |
 | `contact.email` | `Contact.email` | string | Spoken "at"/"dot" expanded to `@`/`.`. See rules.md "email normalization". |
-| `contact.company` | `Contact.company` | string | Usually `not_in_source` on a residential call. |
+| `contact.company` | `Contact.company` | string | Fill only if the prospect names their own company/employer as a business fact; a company mentioned only as rapport goes to `personalNotes`. |
 | `contact.address` | `Contact.address` | string | The prospect's OWN mailing address if stated. NOT the subject property (that is the deal). |
 | `contact.source` | `Contact.source` | `ContactSource` enum | Must be one of the enum values in [`enums.md`](enums.md). If the stated origin has no enum value, maps to `other` and the real origin is preserved in `notes`/`unmapped`. |
 | `contact.personalNotes` | `Contact.personalNotes` | string | Rapport / personal life facts stated on the call (`Contact.personalNotes` is defined as "rapport / personal notes about the human, NOT business activity"). |
