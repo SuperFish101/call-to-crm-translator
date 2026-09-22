@@ -1,7 +1,7 @@
 # The output fields, traced to the real CRM
 
 This translator does not invent a schema. Every field below is a real field on a
-production real-estate CRM record (a GoHighLevel-style multi-tenant CRM), and the "CRM source"
+production CRM record (a GoHighLevel-style multi-tenant CRM), and the "CRM source"
 column names the TypeScript type and file it comes from. The three record types a discovery
 call touches are Contact, Deal and Task, plus free-form Notes. The enums are vendored in full
 in [`enums.md`](enums.md) so the contract is checkable here without the CRM's own source.
@@ -30,7 +30,7 @@ field is `{ value, evidence, source_lines, derivation? }`; every empty field is
 | `deal.title` | `Deal.title` | string | A short label. Derived from the subject property + intent; derivation is declared. |
 | `deal.value` | `Deal.value` | number | The prospect's STATED price expectation, normalized to whole dollars. Carries the verbatim quote as evidence and the normalization as `derivation`. |
 | `deal.currency` | `Deal.currency` | string | **`not_in_source`.** A call rarely states a currency; the translator does not pretend it did. The CRM's downstream USD default is recorded in `meta.assumptions`, not written into the field. |
-| `deal.timeline` | (maps to a `customFields` value / operator's timeline field) | string | The stated listing timeframe ("list in the spring, March or April"). |
+| `deal.timeline` | (maps to a `customFields` value / operator's timeline field) | string | The stated timeframe for the deal ("list in the spring, March or April"). |
 | `deal.stageId` | `Deal.stageId` | `PipelineStageId` enum | **Always `requires_judgment`.** Assigning a pipeline stage is a decision the operator makes, not a fact in the transcript. See rules.md "What the translator refuses to set". |
 | `deal.priority` | `Deal.priority` | `DealPriority` enum | **Always `requires_judgment`.** Same reason as stageId. |
 

@@ -1,20 +1,21 @@
 # Call → CRM translator
 
-Turn a real-estate discovery-call transcript into a CRM record — a contact, a deal, tasks,
+Turn a sales / discovery-call transcript into a CRM record — a contact, a deal, tasks,
 and notes — in fixed fields, where **every value cites the transcript line it came from** and
 nothing is invented. If the call didn't say it, the field says `not in source`. If filling it
 would be a guess, the field says `requires human judgment`. It never makes up a price, a date,
 a name spelling, or a next step nobody agreed to.
 
-The target fields are the real record shape from a production real-estate CRM (a
-GoHighLevel-style CRM). See [`reference/crm-fields.md`](reference/crm-fields.md).
+The target fields are the real record shape from a production CRM (a GoHighLevel-style CRM).
+See [`reference/crm-fields.md`](reference/crm-fields.md).
 
 ## Who does this by hand today
 
-A real-estate agent, after every call, retyping what the prospect said into their CRM: name,
-number, the price they hope to get, the objection they raised, the thing they agreed to do
-next. 5–10 minutes of dull data entry per call. Nobody automates it because the last tool that
-tried invented a budget or a close date the prospect never gave. This one refuses to.
+Anyone who fields sales calls for a small business, after every call, retyping what the
+prospect said into their CRM: name, number, the price they hope to get, the objection they
+raised, the thing they agreed to do next. 5–10 minutes of dull data entry per call. Nobody
+automates it because the last tool that tried invented a budget or a close date the prospect
+never gave. This one refuses to.
 
 ## Use it (drop into a Claude project)
 

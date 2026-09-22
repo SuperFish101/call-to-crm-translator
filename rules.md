@@ -94,11 +94,12 @@ value "Sell Cambridge Court, Elk Grove". The derivation may only reshape words a
 evidence. Do not add a price, a name, or a date to the title.
 
 ### deal.value — price normalization
-Evidence = the verbatim price the PROSPECT stated as their own expectation ("around
-six-fifty"). Value = `650000`. Derivation: "'six-fifty' in a home-price context = 650,000".
-CRITICAL: only the prospect's own stated expectation is the deal value. A comp the agent or
-prospect mentions ("a house two doors down sold for six-eighty") is NOT the deal value — it
-is a `financial` note. Never blend a comp into the expected price.
+Evidence = the verbatim price the PROSPECT stated as their own expectation or budget ("around
+six-fifty"). Value = `650000`. Derivation: "'six-fifty' in a price context = 650,000".
+CRITICAL: only the prospect's own stated expectation is the deal value. A reference figure the
+salesperson or prospect mentions in passing (e.g. "a comparable one went for six-eighty") is
+NOT the deal value — it is a `financial` note. Never blend a reference figure into the
+expected price.
 
 ### deal.currency
 The call almost never states a currency, so this field is `not_in_source`. The CRM applies
@@ -108,8 +109,9 @@ This keeps the "nothing unsourced in a value" promise absolute. If a call DOES s
 currency, that becomes sourced evidence and the field is filled normally.
 
 ### deal.timeline
-The stated listing timeframe, verbatim as evidence ("list in the spring, so probably March
-or April next year"). Keep the phrase; do not convert "spring" to a specific date.
+The stated timeframe for the deal, verbatim as evidence ("list in the spring, so probably
+March or April next year"). Keep the phrase; do not convert a vague phrase like "spring" to a
+specific date.
 
 ### deal.stageId and deal.priority
 See "What the translator refuses to set" below. Always `requires_judgment`.

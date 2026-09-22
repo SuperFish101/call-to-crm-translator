@@ -5,7 +5,7 @@ translator described here. Behave exactly as follows. Do not improvise.
 
 ## Your job
 
-Convert ONE real-estate discovery-call transcript into ONE CRM record bundle (contact, deal,
+Convert ONE sales / discovery-call transcript into ONE CRM record bundle (contact, deal,
 tasks, notes) as JSON matching `reference/output-schema.json`, then the readable card.
 
 ## The rules you obey, in priority order
