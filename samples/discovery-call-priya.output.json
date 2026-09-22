@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "translator": "call-to-crm",
+    "version": "1.0.0",
+    "input_file": "samples/discovery-call-priya.txt",
+    "input_line_count": 16,
+    "assumptions": [
+      "The CRM applies a default currency of USD downstream. The call states no currency, so deal.currency is left not_in_source rather than filled."
+    ]
+  },
+  "contact": {
+    "name": {
+      "value": "Priya",
+      "evidence": "Yeah this is Priya",
+      "source_lines": [2],
+      "derivation": "only a first name was given; no surname invented"
+    },
+    "phone": { "value": null, "status": "not_in_source" },
+    "email": { "value": null, "status": "not_in_source" },
+    "company": { "value": null, "status": "not_in_source" },
+    "address": { "value": null, "status": "not_in_source" },
+    "source": {
+      "value": "referral",
+      "evidence": "My coworker Devon, you helped him buy last year. He said call you.",
+      "source_lines": [10],
+      "derivation": "prospect named a person who referred them (coworker Devon) -> ContactSource 'referral' per enums.md"
+    },
+    "personalNotes": {
+      "value": "First-time buyer; nervous about the process.",
+      "evidence": "first place, kind of nervous about the whole thing honestly",
+      "source_lines": [4]
+    },
+    "relations": [
+      {
+        "name": "Devon",
+        "relationship": "coworker",
+        "evidence": "My coworker Devon",
+        "source_lines": [10]
+      }
+    ]
+  },
+  "deal": {
+    "title": {
+      "value": "Buy first home in Roseville",
+      "evidence": "looking to buy, first place",
+      "source_lines": [4, 8],
+      "derivation": "intent (buy, first home) + stated area (Roseville, line 8), reshaped from the quotes"
+    },
+    "value": {
+      "value": 400000,
+      "evidence": "I got pre-approved for four hundred",
+      "source_lines": [6],
+      "derivation": "'four hundred' in a home-budget context = 400,000. This is the pre-approval amount the prospect stated as their budget."
+    },
+    "currency": { "value": null, "status": "not_in_source" },
+    "timeline": { "value": null, "status": "not_in_source" },
+    "stageId": { "value": null, "status": "requires_judgment" },
+    "priority": { "value": null, "status": "requires_judgment" }
+  },
+  "tasks": [
+    {
+      "title": {
+        "value": "Send Roseville listings under 400k",
+        "evidence": "send you a few listings in Roseville under four hundred to start",
+        "source_lines": [15],
+        "derivation": "the committed action, reshaped from the quote"
+      },
+      "dueAt": { "value": null, "status": "not_in_source" },
+      "notes": { "value": null, "status": "not_in_source" }
+    }
+  ],
+  "notes": [
+    {
+      "category": "objection",
+      "content": {
+        "value": "First-time buyer, nervous about the whole process.",
+        "evidence": "first place, kind of nervous about the whole thing honestly",
+        "source_lines": [4]
+      }
+    },
+    {
+      "category": "financial",
+      "content": {
+        "value": "Pre-approved for 400k, wants to stay a bit under to be safe.",
+        "evidence": "I got pre-approved for four hundred. Maybe a bit under to be safe.",
+        "source_lines": [6]
+      }
+    },
+    {
+      "category": "property",
+      "content": {
+        "value": "Target area: Roseville, near where she works.",
+        "evidence": "Somewhere in Roseville ideally, near where I work.",
+        "source_lines": [8]
+      }
+    },
+    {
+      "category": "context",
+      "content": {
+        "value": "Prefers to be contacted by text, does not check email.",
+        "evidence": "can you just text me? I never check email",
+        "source_lines": [12]
+      }
+    }
+  ],
+  "unmapped": [
+    {
+      "source_lines": [12],
+      "text": "can you just text me? I never check email",
+      "reason": "Prospect asked to be contacted by text and said she never checks email, so contact.email stays not_in_source and this preference is recorded. Also captured as a context note; kept here to make explicit WHY the email field is empty rather than missed."
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Call-to-CRM output bundle",
+  "description": "The fixed shape a discovery-call transcript is translated into. One contact, one optional deal, zero or more tasks, zero or more notes, plus an unmapped list. Every populated leaf carries verbatim evidence and the line(s) it came from. Every empty leaf carries a status.",
+  "type": "object",
+  "required": ["meta", "contact", "deal", "tasks", "notes", "unmapped"],
+  "additionalProperties": false,
+  "definitions": {
+    "filled": {
+      "type": "object",
+      "required": ["value", "evidence", "source_lines"],
+      "additionalProperties": false,
+      "properties": {
+        "value": { "type": ["string", "number"] },
+        "evidence": { "type": "string", "minLength": 1, "description": "A substring that appears VERBATIM in the transcript at every line in source_lines." },
+        "source_lines": { "type": "array", "items": { "type": "integer", "minimum": 1 }, "minItems": 1 },
+        "derivation": { "type": "string", "description": "Only present when value differs from evidence. Names the deterministic rule (from rules.md) applied to turn the quote into the value." }
+      }
+    },
+    "empty": {
+      "type": "object",
+      "required": ["value", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "value": { "type": "null" },
+        "status": { "type": "string", "enum": ["not_in_source", "requires_judgment"] }
+      }
+    },
+    "field": { "oneOf": [ { "$ref": "#/definitions/filled" }, { "$ref": "#/definitions/empty" } ] }
+  },
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["translator", "version", "input_file", "input_line_count", "assumptions"],
+      "additionalProperties": false,
+      "properties": {
+        "translator": { "const": "call-to-crm" },
+        "version": { "type": "string" },
+        "input_file": { "type": "string" },
+        "input_line_count": { "type": "integer", "minimum": 1 },
+        "assumptions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Declared constants that are NOT derived from the transcript (e.g. currency=USD). Anything here is the translator's fixed assumption, not a claim about the input."
+        }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "required": ["name", "phone", "email", "company", "address", "source", "personalNotes", "relations"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "$ref": "#/definitions/field" },
+        "phone": { "$ref": "#/definitions/field" },
+        "email": { "$ref": "#/definitions/field" },
+        "company": { "$ref": "#/definitions/field" },
+        "address": { "$ref": "#/definitions/field" },
+        "source": { "$ref": "#/definitions/field" },
+        "personalNotes": { "$ref": "#/definitions/field" },
+        "relations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "relationship", "evidence", "source_lines"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "type": "string" },
+              "relationship": { "type": "string" },
+              "evidence": { "type": "string", "minLength": 1 },
+              "source_lines": { "type": "array", "items": { "type": "integer", "minimum": 1 }, "minItems": 1 }
+            }
+          }
+        }
+      }
+    },
+    "deal": {
+      "type": "object",
+      "required": ["title", "value", "currency", "timeline", "stageId", "priority"],
+      "additionalProperties": false,
+      "properties": {
+        "title": { "$ref": "#/definitions/field" },
+        "value": { "$ref": "#/definitions/field" },
+        "currency": { "$ref": "#/definitions/field" },
+        "timeline": { "$ref": "#/definitions/field" },
+        "stageId": { "$ref": "#/definitions/field" },
+        "priority": { "$ref": "#/definitions/field" }
+      }
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "dueAt", "notes"],
+        "additionalProperties": false,
+        "properties": {
+          "title": { "$ref": "#/definitions/field" },
+          "dueAt": { "$ref": "#/definitions/field" },
+          "notes": { "$ref": "#/definitions/field" }
+        }
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["category", "content"],
+        "additionalProperties": false,
+        "properties": {
+          "category": { "type": "string", "enum": ["objection", "context", "property", "financial"] },
+          "content": { "$ref": "#/definitions/field" }
+        }
+      }
+    },
+    "unmapped": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_lines", "text", "reason"],
+        "additionalProperties": false,
+        "properties": {
+          "source_lines": { "type": "array", "items": { "type": "integer", "minimum": 1 }, "minItems": 1 },
+          "text": { "type": "string", "minLength": 1 },
+          "reason": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

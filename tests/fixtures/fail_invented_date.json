@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "translator": "call-to-crm",
+    "version": "1.0.0",
+    "input_file": "samples/discovery-call-nakamura.txt",
+    "input_line_count": 26,
+    "assumptions": [
+      "The CRM applies a default currency of USD downstream. The call states no currency, so deal.currency is left not_in_source rather than filled."
+    ]
+  },
+  "contact": {
+    "name": {
+      "value": "Trevor Nakamura",
+      "evidence": "it's Trevor Nakamura",
+      "source_lines": [
+        2
+      ]
+    },
+    "phone": {
+      "value": "7165550198",
+      "evidence": "seven, one, six, five, five, five, zero, one, nine, eight",
+      "source_lines": [
+        4
+      ],
+      "derivation": "spoken digits joined in order; nothing added"
+    },
+    "email": {
+      "value": "trevor.nakamura@gmail.com",
+      "evidence": "trevor.nakamura at gmail dot com",
+      "source_lines": [
+        4
+      ],
+      "derivation": "spoken 'at' -> @, ' dot ' -> ., joined"
+    },
+    "company": {
+      "value": null,
+      "status": "not_in_source"
+    },
+    "address": {
+      "value": null,
+      "status": "not_in_source"
+    },
+    "source": {
+      "value": "other",
+      "evidence": "I grabbed your card and then saw your name pop up on that Facebook group for the neighborhood",
+      "source_lines": [
+        6
+      ],
+      "derivation": "origin is an in-person open house plus a neighborhood Facebook group; no ContactSource enum value fits, so 'other' per enums.md. The real origin is preserved verbatim in a context note. NOT mapped to 'facebook', which means a Messenger DM inbound in this CRM."
+    },
+    "personalNotes": {
+      "value": "Third kid on the way; plans to move in with wife Danielle's parents for a few months while they build.",
+      "evidence": "we've got a third kid on the way",
+      "source_lines": [
+        8,
+        16
+      ],
+      "derivation": "personal-life facts joined from lines 8 and 16; both quotes appear verbatim in the transcript"
+    },
+    "relations": [
+      {
+        "name": "Danielle",
+        "relationship": "wife",
+        "evidence": "my wife Danielle",
+        "source_lines": [
+          8
+        ]
+      }
+    ]
+  },
+  "deal": {
+    "title": {
+      "value": "Sell Cambridge Court, Elk Grove",
+      "evidence": "selling our place over on Cambridge Court in Elk Grove",
+      "source_lines": [
+        8
+      ],
+      "derivation": "intent (sell) + subject property, reshaped from the quote; no price, name, or date added"
+    },
+    "value": {
+      "value": 650000,
+      "evidence": "We were hoping somewhere around six-fifty",
+      "source_lines": [
+        12
+      ],
+      "derivation": "'six-fifty' in a home-price context = 650,000. This is the prospect's own stated expectation, NOT the six-eighty comp on the same line."
+    },
+    "currency": {
+      "value": null,
+      "status": "not_in_source"
+    },
+    "timeline": {
+      "value": "list in the spring, probably March or April next year",
+      "evidence": "We'd want to list in the spring, so probably March or April next year",
+      "source_lines": [
+        10
+      ]
+    },
+    "stageId": {
+      "value": null,
+      "status": "requires_judgment"
+    },
+    "priority": {
+      "value": null,
+      "status": "requires_judgment"
+    }
+  },
+  "tasks": [
+    {
+      "title": {
+        "value": "Send CMA for Cambridge Court street",
+        "evidence": "put together a full comparative market analysis for your street",
+        "source_lines": [
+          19
+        ],
+        "derivation": "the committed action, reshaped from the quote"
+      },
+      "dueAt": {
+        "value": "2026-03-15",
+        "evidence": "by March 15th",
+        "source_lines": [
+          21,
+          22
+        ],
+        "derivation": "resolved to a calendar date"
+      },
+      "notes": {
+        "value": "Prospect confirmed Thursday works and will watch for it.",
+        "evidence": "Thursday works. I'll keep an eye out for it.",
+        "source_lines": [
+          22
+        ]
+      }
+    }
+  ],
+  "notes": [
+    {
+      "category": "objection",
+      "content": {
+        "value": "Concerned about commission: neighbor said 6% felt like a lot, is seeing discount brokers online, wants to understand what he is paying for.",
+        "evidence": "Honestly the commission. My neighbor said six percent felt like a lot and I keep seeing those discount brokers online. I need to understand what I'm actually paying for.",
+        "source_lines": [
+          18
+        ]
+      }
+    },
+    {
+      "category": "property",
+      "content": {
+        "value": "Updates: kitchen redone two years ago; new roof last fall.",
+        "evidence": "We redid the kitchen two years ago and put on a new roof last fall.",
+        "source_lines": [
+          14
+        ]
+      }
+    },
+    {
+      "category": "financial",
+      "content": {
+        "value": "Comp: a house two doors down sold for ~680k in the summer. (Not the deal value.)",
+        "evidence": "A house two doors down sold for six-eighty back in the summer.",
+        "source_lines": [
+          12
+        ]
+      }
+    },
+    {
+      "category": "financial",
+      "content": {
+        "value": "Existing mortgage: approximately 200k remaining.",
+        "evidence": "There's a mortgage, we've got maybe two hundred grand left on it.",
+        "source_lines": [
+          24
+        ]
+      }
+    },
+    {
+      "category": "context",
+      "content": {
+        "value": "Origin: attended the agent's open house on Larkspur last month, took a card, then saw the agent's name in the neighborhood Facebook group.",
+        "evidence": "You did the open house on Larkspur last month. I grabbed your card and then saw your name pop up on that Facebook group for the neighborhood.",
+        "source_lines": [
+          6
+        ]
+      }
+    },
+    {
+      "category": "context",
+      "content": {
+        "value": "Sale only, no purchase on the other side; moving in with in-laws for a few months while they build.",
+        "evidence": "Just the sale for now. We're going to move in with Danielle's parents for a few months while we build.",
+        "source_lines": [
+          16
+        ]
+      }
+    }
+  ],
+  "unmapped": [
+    {
+      "source_lines": [
+        25
+      ],
+      "text": "we can set up a time to walk the house after you've had a look",
+      "reason": "Agent proposed a house walk, but it was made conditional ('after you've had a look') and the prospect did not commit to it on the call. Not a task per rules.md (only committed actions become tasks). Recorded here so the proposed next step is not lost."
+    }
+  ]
+}

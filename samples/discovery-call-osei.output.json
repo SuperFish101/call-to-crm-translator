@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "translator": "call-to-crm",
+    "version": "1.0.0",
+    "input_file": "samples/discovery-call-osei.txt",
+    "input_line_count": 16,
+    "assumptions": [
+      "The CRM applies a default currency of USD downstream. The call states no currency, so deal.currency is left not_in_source rather than filled."
+    ]
+  },
+  "contact": {
+    "name": {
+      "value": "Bill Osei",
+      "evidence": "my name's Bill Osei",
+      "source_lines": [2]
+    },
+    "phone": {
+      "value": "2094441212",
+      "evidence": "Two oh nine, four four four, one two one two",
+      "source_lines": [12],
+      "derivation": "spoken digits joined in order ('two oh nine' = 209); nothing added"
+    },
+    "email": {
+      "value": "billosei@outlook.com",
+      "evidence": "billosei at outlook dot com",
+      "source_lines": [14],
+      "derivation": "spoken 'at' -> @, ' dot ' -> ., joined"
+    },
+    "company": { "value": null, "status": "not_in_source" },
+    "address": { "value": null, "status": "not_in_source" },
+    "source": {
+      "value": "other",
+      "evidence": "I saw your sign on the corner of Third and Elm",
+      "source_lines": [2],
+      "derivation": "origin is a physical yard/corner sign; no ContactSource enum value fits, so 'other' per enums.md. Real origin preserved in a context note."
+    },
+    "personalNotes": {
+      "value": "Executor of his late mother's estate.",
+      "evidence": "My mother passed and we've got her house to deal with. I'm the executor.",
+      "source_lines": [4]
+    },
+    "relations": []
+  },
+  "deal": {
+    "title": {
+      "value": "Sell 44 Maple as-is (estate)",
+      "evidence": "It's over at 44 Maple",
+      "source_lines": [6, 8],
+      "derivation": "subject property (44 Maple, line 6) + intent (sell as-is, line 8), reshaped from the quotes"
+    },
+    "value": { "value": null, "status": "not_in_source" },
+    "currency": { "value": null, "status": "not_in_source" },
+    "timeline": {
+      "value": "after probate closes, lawyer estimated ~60 days",
+      "evidence": "The probate isn't final yet, lawyer said maybe sixty days. So after that.",
+      "source_lines": [10]
+    },
+    "stageId": { "value": null, "status": "requires_judgment" },
+    "priority": { "value": null, "status": "requires_judgment" }
+  },
+  "tasks": [
+    {
+      "title": {
+        "value": "Pull comps and email as-is range for 44 Maple neighborhood",
+        "evidence": "pull the comps for that neighborhood and email you a rough as-is range",
+        "source_lines": [13],
+        "derivation": "the committed action, reshaped from the quote"
+      },
+      "dueAt": {
+        "value": "Monday",
+        "evidence": "I'll have that to you by Monday",
+        "source_lines": [15],
+        "derivation": "kept as the verbatim phrase; NOT resolved to a calendar date (transcript states no call date)"
+      },
+      "notes": { "value": null, "status": "not_in_source" }
+    }
+  ],
+  "notes": [
+    {
+      "category": "property",
+      "content": {
+        "value": "44 Maple, older part of town. Needs a lot of work, not updated since the eighties. Selling as-is, no repairs.",
+        "evidence": "It's over at 44 Maple in the older part of town. Honestly it needs a lot of work, hasn't been touched since the eighties.",
+        "source_lines": [6, 8]
+      }
+    },
+    {
+      "category": "context",
+      "content": {
+        "value": "Estate sale: caller is executor of his late mother's house. Wants it sold as-is, fairly, does not want to invest in repairs.",
+        "evidence": "As-is, definitely. We don't want to put money into it. Just want it gone, fairly.",
+        "source_lines": [8]
+      }
+    },
+    {
+      "category": "context",
+      "content": {
+        "value": "Timing is gated by probate: lawyer estimated about sixty days until final.",
+        "evidence": "The probate isn't final yet, lawyer said maybe sixty days. So after that.",
+        "source_lines": [10]
+      }
+    },
+    {
+      "category": "context",
+      "content": {
+        "value": "Origin: saw the agent's sign on the corner of Third and Elm.",
+        "evidence": "I saw your sign on the corner of Third and Elm",
+        "source_lines": [2]
+      }
+    }
+  ],
+  "unmapped": []
+}

@@ -1,0 +1,16 @@
+Agent: Morning, Karen speaking.
+Caller: Hi Karen, my name's Bill Osei. I saw your sign on the corner of Third and Elm.
+Agent: Oh great, thanks for calling. What's on your mind?
+Caller: My mother passed and we've got her house to deal with. I'm the executor.
+Agent: I'm sorry for your loss.
+Caller: Thank you. It's over at 44 Maple in the older part of town. Honestly it needs a lot of work, hasn't been touched since the eighties.
+Agent: Understood. Are you looking to sell as-is or fix it up first?
+Caller: As-is, definitely. We don't want to put money into it. Just want it gone, fairly.
+Agent: That's doable. Any timeline?
+Caller: The probate isn't final yet, lawyer said maybe sixty days. So after that.
+Agent: Okay, we can prep in the meantime. What's a good callback number?
+Caller: Two oh nine, four four four, one two one two.
+Agent: Got it. I'll pull the comps for that neighborhood and email you a rough as-is range. What's your email?
+Caller: billosei at outlook dot com.
+Agent: Perfect, I'll have that to you by Monday.
+Caller: Appreciate it, Karen.

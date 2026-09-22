@@ -1,0 +1,16 @@
+Agent: Hi, this is Ray. Is this Priya?
+Prospect: Yeah this is Priya.
+Agent: Great, thanks for calling back. What can I help with?
+Prospect: So I'm looking to buy, first place, kind of nervous about the whole thing honestly.
+Agent: Totally normal. What's your budget looking like?
+Prospect: Um, I got pre-approved for four hundred. Maybe a bit under to be safe.
+Agent: Good, pre-approval is the hard part. What area?
+Prospect: Somewhere in Roseville ideally, near where I work.
+Agent: And how did you hear about me?
+Prospect: My coworker Devon, you helped him buy last year. He said call you.
+Agent: Devon, love it. Best email for you?
+Prospect: Uh, can you just text me? I never check email.
+Agent: No problem. This number's good?
+Prospect: Yep this one.
+Agent: Perfect. I'll send you a few listings in Roseville under four hundred to start. Talk this week?
+Prospect: Sounds good, thanks Ray.
