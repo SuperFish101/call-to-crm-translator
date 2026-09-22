@@ -1,10 +1,10 @@
 # The output fields, traced to the real CRM
 
 This translator does not invent a schema. Every field below is a real field on a
-LeadStack CRM record, and the "CRM source" column names the TypeScript type and file it
-comes from so a reader can open the codebase and check. LeadStack is the CRM Darren Soares
-built (a GoHighLevel-style multi-tenant CRM for real estate teams). The three record types
-a discovery call touches are Contact, Deal and Task, plus free-form Notes.
+production real-estate CRM record (a GoHighLevel-style multi-tenant CRM), and the "CRM source"
+column names the TypeScript type and file it comes from. The three record types a discovery
+call touches are Contact, Deal and Task, plus free-form Notes. The enums are vendored in full
+in [`enums.md`](enums.md) so the contract is checkable here without the CRM's own source.
 
 Field-value shape is defined in [`output-schema.json`](output-schema.json). Every populated
 field is `{ value, evidence, source_lines, derivation? }`; every empty field is

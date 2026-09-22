@@ -6,7 +6,7 @@ nothing is invented. If the call didn't say it, the field says `not in source`. 
 would be a guess, the field says `requires human judgment`. It never makes up a price, a date,
 a name spelling, or a next step nobody agreed to.
 
-The target fields are the real record shape from a production CRM (LeadStack, a
+The target fields are the real record shape from a production real-estate CRM (a
 GoHighLevel-style CRM). See [`reference/crm-fields.md`](reference/crm-fields.md).
 
 ## Who does this by hand today

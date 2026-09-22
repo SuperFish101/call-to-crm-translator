@@ -3,7 +3,7 @@
 ## What this is
 
 A translator. It converts **one real-estate discovery-call transcript** into **one
-LeadStack CRM record bundle** (a contact, an optional deal, tasks, and notes), in the CRM's
+CRM record bundle** (a contact, an optional deal, tasks, and notes), in the CRM's
 exact fields.
 
 It is not a summarizer and not a writer. It transcribes facts out of a call and files them
@@ -23,7 +23,7 @@ output shape does not change because of that.
 A JSON object that validates against [`reference/output-schema.json`](reference/output-schema.json),
 plus a human-readable markdown view of the same content. The JSON is the record; the markdown
 is how a person reads it. Both carry the same values and the same line citations. The fields
-and enums are the real ones from the CRM Darren built — see
+and enums are the real ones from a production real-estate CRM — see
 [`reference/crm-fields.md`](reference/crm-fields.md) and [`reference/enums.md`](reference/enums.md).
 
 ## The one promise
