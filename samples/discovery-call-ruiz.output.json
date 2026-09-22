@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "translator": "call-to-crm",
+    "version": "1.0.0",
+    "input_file": "samples/discovery-call-ruiz.txt",
+    "input_line_count": 20,
+    "assumptions": [
+      "The CRM applies a default currency of USD downstream. The call states no currency, so deal.currency is left not_in_source rather than filled."
+    ]
+  },
+  "contact": {
+    "name": {
+      "value": "Angela Ruiz",
+      "evidence": "It's Angela, Angela Ruiz.",
+      "source_lines": [2]
+    },
+    "phone": {
+      "value": "4152228765",
+      "evidence": "four one five, two two two, eight seven six five",
+      "source_lines": [4],
+      "derivation": "spoken digits joined in order; nothing added"
+    },
+    "email": {
+      "value": "a.ruiz@northpeak.io",
+      "evidence": "a dot ruiz at northpeak dot io",
+      "source_lines": [4],
+      "derivation": "spoken ' dot ' -> ., 'at' -> @, joined; lowercased as spoken"
+    },
+    "company": { "value": null, "status": "not_in_source" },
+    "address": { "value": null, "status": "not_in_source" },
+    "source": {
+      "value": "other",
+      "evidence": "We found you through the review on that G2 comparison page",
+      "source_lines": [6],
+      "derivation": "origin is a third-party review site (G2); no ContactSource enum value fits, so 'other' per enums.md. The real origin is preserved verbatim in a context note."
+    },
+    "personalNotes": { "value": null, "status": "not_in_source" },
+    "relations": [
+      {
+        "name": "Dave",
+        "relationship": "controller",
+        "evidence": "My controller Dave is drowning",
+        "source_lines": [8]
+      },
+      {
+        "name": "Marcus",
+        "relationship": "CFO (decision-maker / approver)",
+        "evidence": "our CFO, Marcus",
+        "source_lines": [16]
+      }
+    ]
+  },
+  "deal": {
+    "title": {
+      "value": "Replace QuickBooks accounting platform",
+      "evidence": "We're on QuickBooks but we've outgrown it",
+      "source_lines": [10],
+      "derivation": "intent (replace/outgrown current tool) reshaped from the quote; no price, name, or date added"
+    },
+    "value": {
+      "value": 30000,
+      "evidence": "Thirty could work if the migration isn't a nightmare",
+      "source_lines": [12],
+      "derivation": "'thirty' in an annual-price context = 30,000/yr. This is the prospect's OWN conditional acceptance of the ~30k figure (condition: migration risk). The 80k competitor quote is a reference figure recorded as a financial note, NOT the deal value."
+    },
+    "currency": { "value": null, "status": "not_in_source" },
+    "timeline": {
+      "value": "before fiscal year end (end of Q1), sometime in March",
+      "evidence": "Ideally before our fiscal year end, which is end of Q1. So sometime in March.",
+      "source_lines": [14]
+    },
+    "stageId": { "value": null, "status": "requires_judgment" },
+    "priority": { "value": null, "status": "requires_judgment" }
+  },
+  "tasks": [
+    {
+      "title": {
+        "value": "Send tailored proposal and migration plan",
+        "evidence": "send you a tailored proposal and a migration plan",
+        "source_lines": [17],
+        "derivation": "the committed action, reshaped from the rep's quote"
+      },
+      "dueAt": {
+        "value": "Friday",
+        "evidence": "by Friday",
+        "source_lines": [17],
+        "derivation": "kept as the verbatim phrase; NOT resolved to a calendar date because the transcript states no call date. Prospect confirmed on line 18 ('Friday's good')."
+      },
+      "notes": {
+        "value": "Prospect confirmed Friday works and will loop in CFO Marcus.",
+        "evidence": "Friday's good. Send it to me and I'll loop in Marcus.",
+        "source_lines": [18]
+      }
+    },
+    {
+      "title": {
+        "value": "Include two customer references (similar-size teams) with the proposal",
+        "evidence": "I'll also include two customer references your size",
+        "source_lines": [19],
+        "derivation": "rep-committed action, reshaped from the quote"
+      },
+      "dueAt": { "value": null, "status": "not_in_source" },
+      "notes": { "value": null, "status": "not_in_source" }
+    },
+    {
+      "title": {
+        "value": "Loop in CFO Marcus on the proposal",
+        "evidence": "I'll loop in Marcus",
+        "source_lines": [18],
+        "derivation": "prospect-committed action, reshaped from the quote"
+      },
+      "dueAt": { "value": null, "status": "not_in_source" },
+      "notes": {
+        "value": "Marcus is the CFO and signs off on anything over $25k; the ~$30k deal will require his approval.",
+        "evidence": "He signs anything over twenty five thousand.",
+        "source_lines": [16]
+      }
+    }
+  ],
+  "notes": [
+    {
+      "category": "objection",
+      "content": {
+        "value": "Migration risk is the real worry: acceptance of ~30k is conditional on the migration not being a nightmare; cannot lose data.",
+        "evidence": "Thirty could work if the migration isn't a nightmare. That's my real worry, we can't lose data.",
+        "source_lines": [12]
+      }
+    },
+    {
+      "category": "financial",
+      "content": {
+        "value": "Competitor quoted ~$80k/yr, which the prospect felt was insane. (Reference figure, NOT the deal value.)",
+        "evidence": "We were quoted eighty grand a year by a competitor and that felt insane.",
+        "source_lines": [10]
+      }
+    },
+    {
+      "category": "context",
+      "content": {
+        "value": "Core pain: month-end close takes ~2 weeks, controller Dave is drowning; needs it down to a few days.",
+        "evidence": "Month-end close takes us like two weeks. My controller Dave is drowning. We need it down to a few days.",
+        "source_lines": [8]
+      }
+    },
+    {
+      "category": "context",
+      "content": {
+        "value": "Firmographics / current stack: team of ~40, current bookkeeping tool is falling over; on QuickBooks but outgrown it.",
+        "evidence": "our current bookkeeping tool is falling over. We're a team of about forty now.",
+        "source_lines": [6]
+      }
+    },
+    {
+      "category": "context",
+      "content": {
+        "value": "Origin: found BrightLedger via a review on a G2 comparison page.",
+        "evidence": "We found you through the review on that G2 comparison page",
+        "source_lines": [6]
+      }
+    }
+  ],
+  "unmapped": [
+    {
+      "source_lines": [13],
+      "text": "Migrations are included and we assign an engineer.",
+      "reason": "Rep reassurance answering the data-loss/migration objection. A seller claim about BrightLedger's offering, not a prospect fact, so it maps to no contact/deal field. Recorded here so the objection-and-answer pair stays visible."
+    }
+  ]
+}

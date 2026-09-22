@@ -318,6 +318,7 @@ def self_test():
         ("discovery-call-nakamura.txt", "discovery-call-nakamura.output.json"),
         ("discovery-call-priya.txt", "discovery-call-priya.output.json"),
         ("discovery-call-osei.txt", "discovery-call-osei.output.json"),
+        ("discovery-call-ruiz.txt", "discovery-call-ruiz.output.json"),
     ]
     print("### GOLDEN OUTPUTS (all must PASS, all the same fixed shape)")
     for tx, gj in goldens:

@@ -1,0 +1,20 @@
+Rep: Hi, thanks for taking the call. This is Sam Whitfield over at BrightLedger. Am I catching you at an okay time?
+Prospect: Yeah, this is fine. It's Angela, Angela Ruiz.
+Rep: Great to meet you Angela. And what's the best email and number if I need to follow up?
+Prospect: Sure, it's a dot ruiz at northpeak dot io, and my direct line is four one five, two two two, eight seven six five.
+Rep: Perfect. So what made you reach out to us?
+Prospect: We found you through the review on that G2 comparison page, and honestly our current bookkeeping tool is falling over. We're a team of about forty now.
+Rep: Got it. What's the main pain right now?
+Prospect: Month-end close takes us like two weeks. My controller Dave is drowning. We need it down to a few days.
+Rep: That's exactly what we help with. What are you using today?
+Prospect: We're on QuickBooks but we've outgrown it. We were quoted eighty grand a year by a competitor and that felt insane.
+Rep: I hear you. Our teams your size usually land around thirty a year. Would that be workable?
+Prospect: Thirty could work if the migration isn't a nightmare. That's my real worry, we can't lose data.
+Rep: Fair. Migrations are included and we assign an engineer. When would you want to be live?
+Prospect: Ideally before our fiscal year end, which is end of Q1. So sometime in March.
+Rep: Doable. Who else is involved in the decision?
+Prospect: It'd be me and our CFO, Marcus. He signs anything over twenty five thousand.
+Rep: Understood. Can I send you a tailored proposal and a migration plan by Friday?
+Prospect: Friday's good. Send it to me and I'll loop in Marcus.
+Rep: Will do. I'll also include two customer references your size. Talk Friday, Angela.
+Prospect: Thanks Sam.
