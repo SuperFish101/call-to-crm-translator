@@ -71,6 +71,8 @@ operator makes, not facts in the call. Guessing them is the judgment a translato
 - [`reference/`](reference/) — the output schema, the CRM fields, the closed enums.
 - [`examples.md`](examples.md) — the contract holding across different calls.
 - [`LIMITS.md`](LIMITS.md) — what a green run does and does NOT prove. Read before trusting it.
+- [`evidence/control-run.md`](evidence/control-run.md) — the same call on a bare model with no
+  folder: it invented ten facts the transcript never stated. What this folder refuses to do.
 - [`samples/`](samples/) — four transcripts + their outputs + readable cards, across different
   industries so you can see the same shape hold on calls it wasn't tuned for.
 - [`verify-translation.py`](verify-translation.py) / [`render-view.py`](render-view.py) — the gate and the view.
